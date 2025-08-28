@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwitchLayoutView">
+        <attr name="descText" format="string" />
+        <attr name="descVisible" format="boolean" />
+        <attr name="titleText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="CustomDialView">
+        <attr name="arcRadius" format="dimension" />
+        <attr name="arcRadiusRatio" format="dimension" />
+        <attr name="cRadius" format="dimension" />
+        <attr name="cRadiusRatio" format="dimension" />
+        <attr name="circleColor" format="color" />
+        <attr name="dashLineMargin" format="dimension" />
+        <attr name="endColor" format="color" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="indicatorLength" format="dimension" />
+        <attr name="indicatorSize" format="dimension" />
+        <attr name="middleColor" format="color" />
+        <attr name="scaleTextMargin" format="dimension" />
+        <attr name="scaleValue1" format="float" />
+        <attr name="scaleValue2" format="float" />
+        <attr name="scaleValue3" format="float" />
+        <attr name="scaleValue4" format="float" />
+        <attr name="scaleValue5" format="float" />
+        <attr name="startColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="factory_textColor" format="color"/>
+        <attr name="textSize" format="dimension" />
+        <attr name="unitText" format="string" />
+        <attr name="unitTextSize" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="RatioLineCustomView">
+        <attr name="descTextPaddingLeft" format="dimension" />
+        <attr name="descTextPaddingRight" format="dimension" />
+        <attr name="descTextPaddingTop" format="dimension" />
+        <attr name="descTextSize" format="dimension" />
+        <attr name="descTextTitleColor" format="color" />
+        <attr name="isRoundStyle" format="boolean" />
+        <attr name="lineSize" format="dimension" />
+    </declare-styleable>
+    <attr name="bluetoothSearchBtnItemBg" format="reference" />
+    <attr name="bluetoothSearchingBtnItemBg" format="color" />
+    <attr name="btnBg" format="reference" />
+    <attr name="btnTextColor" format="reference" />
+
+
+    <attr name="dialCircleColor" format="color" />
+    <attr name="dialEndColor" format="color" />
+    <attr name="dialIndicatorColor" format="color" />
+    <attr name="dialMiddleColor" format="color" />
+    <attr name="dialStartColor" format="color" />
+    <attr name="dialTextColor" format="color" />
+    <attr name="dialogMsgColor" format="color" />
+    <attr name="dialogTipIcon" format="reference" />
+    <attr name="dialogbg" format="color" />
+    <attr name="enableFocusableItemBg" format="reference" />
+    <attr name="enableFocusableTextColor" format="reference" />
+    <attr name="enableTextColor" format="color" />
+    <attr name="enterPwdEdtBg" format="reference" />
+    <attr name="handsetPairResultIcon" format="reference" />
+    <attr name="itemBg" format="reference" />
+    <attr name="mainBg" format="color" />
+    <attr name="mainPageItemBg" format="reference" />
+    <attr name="mainPageItemColor" format="reference" />
+    <attr name="primaryTextColor" format="color" />
+    <attr name="progressBarAnim" format="reference" />
+    <attr name="scrollbar_thumb_v" format="reference" />
+    <attr name="scrollbar_thumb_v_color" format="color" />
+    <attr name="scrollbar_track_v" format="reference" />
+    <attr name="scrollbar_track_v_color" format="color" />
+    <attr name="secondaryTextColor" format="color" />
+    <attr name="selectedItemBg" format="reference" />
+    <attr name="selectedTextColor" format="color" />
+    <attr name="storageDetailItemIconTint" format="color" />
+    <attr name="switch_password_hidden" format="reference" />
+    <attr name="switch_password_visible" format="reference" />
+    <attr name="switch_thumb" format="reference" />
+    <attr name="switch_track" format="reference" />
+
+    <!--自定义-->
+    <attr name="background_color" format="color"/>
+    <attr name="arrowSrc" format="reference"/>
+    <attr name="main_projection_src" format="reference"/>
+    <attr name="main_internet_src" format="reference"/>
+    <attr name="main_bluetooth_src" format="reference"/>
+    <attr name="main_universal_src" format="reference"/>
+    <attr name="main_device_src" format="reference"/>
+    <attr name="bBg" format="reference"/>
+    <attr name="arrowBack_src" format="reference"/>
+
+    <attr name="projection_double_src" format="reference"/>
+    <attr name="projection_single_src" format="reference"/>
+    <attr name="projection_size_src" format="reference"/>
+    <attr name="projection_method_src" format="reference"/>
+    <attr name="projection_bg" format="reference"/>
+    <attr name="arrow_vertical" format="reference"/>
+    <attr name="arrow_horizontal" format="reference"/>
+    <attr name="trape_dots" format="reference"/>
+    <attr name="icon_projection_selected" format="reference"/>
+    <attr name="projection_method_pos_pos_bg" format="reference"/>
+    <attr name="projection_method_pos_neg_bg" format="reference"/>
+    <attr name="projection_method_neg_pos_bg" format="reference"/>
+    <attr name="projection_method_neg_neg_bg" format="reference"/>
+
+    <attr name="bluetooth_icon" format="reference"/>
+    <attr name="storage_title_iv" format="reference"/>
+
+    <attr name="storage_totalcolor" format="color"/>
+    <attr name="storage_availablecolor" format="color"/>
+    <attr name="storage_systemcolor" format="color"/>
+    <attr name="storage_appcolor" format="color"/>
+    <attr name="storage_othercolor" format="color"/>
+    <attr name="editTextColor" format="color"/>
+
+    <attr name="projector_spaceHeightPercent" format="float"/>
+    <attr name="main_spaceVertical_weight" format="float"/>
+</resources>

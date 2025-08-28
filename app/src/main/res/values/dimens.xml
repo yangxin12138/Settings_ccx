@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border_white_width">3dp</dimen>
+    <dimen name="title_textsize">21.0dip</dimen>
+    <dimen name="item_lr_line_corners">4.0dip</dimen>
+    <dimen name="scrollbar_thumb_size">9.0dip</dimen>
+    <dimen name="scrollbar_track_less_width">6.0dip</dimen>
+    <dimen name="switch_height">21.0dip</dimen>
+    <dimen name="switch_thumb_padding">6.0dip</dimen>
+    <dimen name="switch_width">41.0dip</dimen>
+    <dimen name="item_lr_line_width">2.0dip</dimen>
+    <dimen name="singlePoint_dot_width">29dp</dimen>
+    <dimen name="singlePoint_dot_stroke">2dp</dimen>
+    <dimen name="title_padding_tb">7.0dip</dimen>
+    <dimen name="title_margin_l">75.0dip</dimen>
+    <dimen name="title_margin_t">34.0dip</dimen>
+    <dimen name="title_drawable_padding">12.0dip</dimen>
+    <dimen name="title_padding_lr">14.0dip</dimen>
+
+    <dimen name="singlePoint_lu_marginStart">65dp</dimen>
+    <dimen name="singlePoint_lu_marginTop">65dp</dimen>
+    <dimen name="single_tv_textSize">30sp</dimen>
+    <dimen name="single_tv_margin">20dp</dimen>
+    <dimen name="singlePoint_ru_marginTop">65dp</dimen>
+    <dimen name="singlePoint_ru_marginEnd">65dp</dimen>
+    <dimen name="singlePoint_ld_marginStart">65dp</dimen>
+    <dimen name="singlePoint_ld_marginBottom">65dp</dimen>
+    <dimen name="singlePoint_rd_marginEnd">65dp</dimen>
+    <dimen name="singlePoint_rd_marginBottom">65dp</dimen>
+    <dimen name="singlePoint_iv_width">600dp</dimen>
+    <dimen name="singlePoint_iv_height">350dp</dimen>
+    <dimen name="bg_line_corners">6.0dip</dimen>
+    <dimen name="bg_line_width">2.0dip</dimen>
+</resources>

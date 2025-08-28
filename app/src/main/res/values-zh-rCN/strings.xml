@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">设置</string>
+    <string name="index_wifi">WiFi</string>
+    <string name="index_bluetooth">蓝牙设置</string>
+    <string name="index_projection">投影设置</string>
+    <string name="index_about">关于本机</string>
+    <string name="index_date">日期设置</string>
+    <string name="index_language">语言设置</string>
+    <string name="index_reset">恢复出厂</string>
+    <string name="index_settings">系统设置</string>
+    <string name="projection_title">投影设置</string>
+    <string name="projection_mode">投影方式</string>
+    <string name="projection_auto">自动校正</string>
+    <string name="projection_four">四点梯形矫正</string>
+    <string name="projection_zoom">缩放</string>
+    <string name="projection_reset">复位</string>
+
+    <string name="projection_front">正装正投</string>
+    <string name="projection_rear">正装背投</string>
+    <string name="projection_front_ceiling">吊装正投</string>
+    <string name="projection_rear_ceiling">吊装背投</string>
+
+    <string name="projection_auto_enable">打开</string>
+    <string name="projection_auto_disable">关闭</string>
+</resources>

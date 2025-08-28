@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTitleStyle">
+        <item name="android:textSize">@dimen/title_textsize</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?mainPageItemColor</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">?itemBg</item>
+        <item name="android:paddingTop">@dimen/title_padding_tb</item>
+        <item name="android:paddingBottom">@dimen/title_padding_tb</item>
+        <item name="android:focusable">false</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/title_margin_l</item>
+        <item name="android:layout_marginTop">@dimen/title_margin_t</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:drawableLeft">@drawable/ic_arrow_left_title</item>
+        <item name="android:drawablePadding">@dimen/title_drawable_padding</item>
+        <item name="android:paddingStart">@dimen/title_padding_lr</item>
+        <item name="android:paddingEnd">@dimen/title_padding_lr</item>
+        <item name="drawableTint">?mainPageItemColor</item>
+    </style>
+
+    <style name="Theme.TVSettings2.White" parent="@style/Theme.TVSettings2.Base">
+        <item name="btnBg">@drawable/selector_stroke1_red_padding1_solid_red_corner3_enable</item>
+        <item name="btnTextColor">@color/selector_color_black_white</item>
+        <item name="dialCircleColor">@color/color_dddddd</item>
+        <item name="dialEndColor">@color/color_208dee</item>
+        <item name="dialIndicatorColor">@color/color_0084f1</item>
+        <item name="dialMiddleColor">@color/color_5aa2ec</item>
+        <item name="dialStartColor">@color/color_e5edf9</item>
+        <item name="dialTextColor">@color/color_ff000000</item>
+        <item name="dialogMsgColor">@color/color_ff000000</item>
+        <item name="dialogTipIcon">@drawable/ic_notice</item>
+        <item name="dialogbg">@color/white</item>
+        <item name="enableFocusableItemBg">@drawable/selector_stroke_black_orange_gray_corners9
+        </item>
+        <item name="enableFocusableTextColor">@color/selector_color_black_orange_gray</item>
+        <item name="enableTextColor">@color/selector_color_black_gray999</item>
+        <item name="itemBg">@drawable/selector_stroke1_blue_corner5</item>
+        <item name="mainBg">@color/white</item>
+        <item name="mainPageItemBg">@drawable/selector_stroke_black_orange_solid_orange_corner3
+        </item>
+        <item name="mainPageItemColor">@color/selector_color_black_orange</item>
+        <item name="primaryTextColor">@color/color_ff000000</item>
+        <item name="progressBarAnim">@drawable/anim_loading</item>
+        <item name="scrollbar_thumb_v">@drawable/shape_scrollbar_thumb</item>
+        <item name="scrollbar_thumb_v_color">@color/color_f33e25</item>
+        <item name="scrollbar_track_v">@drawable/shape_scrollbar_bg_gray</item>
+        <item name="scrollbar_track_v_color">@color/color_999999</item>
+        <item name="secondaryTextColor">@color/color_333333</item>
+        <item name="selectedItemBg">@drawable/selected_item_bg_orange</item>
+        <item name="selectedTextColor">@color/color_f33e25</item>
+        <item name="storageDetailItemIconTint">@color/color_999999</item>
+        <item name="switch_thumb">@drawable/selector_switch_thumb_white</item>
+        <item name="switch_track">@drawable/selector_switch_bg_orange_gray</item>
+        <item name="trape_dots">@drawable/trape_dot</item>
+        <item name="projection_bg">@drawable/trape_background</item>
+        <item name="arrow_horizontal">@mipmap/arrow_horizont</item>
+        <item name="arrow_vertical">@mipmap/arrow_vertical</item>
+    </style>
+    <style name="Theme.TVSettings2.Base" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+
+    <style name="Theme.TVSettings2.IceCreamBlue" parent="@style/Theme.TVSettings2.Base">
+        <item name="bluetoothSearchBtnItemBg">@drawable/selector_solid_empty_white_white_corner3
+        </item>
+        <item name="bluetoothSearchingBtnItemBg">
+            @drawable/selector_solid_empty_white_white_corner3
+        </item>
+        <item name="btnBg">@drawable/selector_stroke1_white_padding1_solid_white_corner3_enable
+        </item>
+        <item name="btnTextColor">@color/selector_color_black_blue</item>
+        <item name="dialCircleColor">@color/color_869cf4</item>
+        <item name="dialEndColor">@color/color_8f9dcb</item>
+        <item name="dialIndicatorColor">@color/white</item>
+        <item name="dialMiddleColor">@color/color_d1dbfe</item>
+        <item name="dialStartColor">@color/white</item>
+        <item name="dialTextColor">@color/white</item>
+        <item name="dialogMsgColor">@color/white</item>
+        <item name="dialogTipIcon">@drawable/ic_notice_blue</item>
+        <item name="dialogbg">@color/color_ff000000</item>
+        <item name="enableFocusableItemBg">@drawable/selector_solid_empty_white_white_corner3</item>
+        <item name="enableFocusableTextColor">@color/selector_color_white_blue_gray</item>
+        <item name="enableTextColor">@color/selector_color_white_gray999</item>
+        <item name="itemBg">@drawable/selector_solid_empty_white_white_corner3</item>
+        <item name="mainBg">@color/color_103ae9</item>
+        <item name="mainPageItemBg">@drawable/selector_solid_empty_white_white_corner3</item>
+        <item name="mainPageItemColor">@color/selector_color_white_blue</item>
+        <item name="primaryTextColor">@color/white</item>
+        <item name="progressBarAnim">@drawable/anim_loading_white</item>
+        <item name="scrollbar_thumb_v">@drawable/shape_scrollbar_thumb_white</item>
+        <item name="scrollbar_thumb_v_color">@color/white</item>
+        <item name="scrollbar_track_v">@drawable/shape_scrollbar_bg_white99</item>
+        <item name="scrollbar_track_v_color">@color/white99</item>
+        <item name="secondaryTextColor">@color/white</item>
+        <item name="selectedItemBg">@drawable/selected_item_bg_blue</item>
+        <item name="selectedTextColor">@color/color_0f39e9</item>
+        <item name="storageDetailItemIconTint">@color/white</item>
+        <item name="switch_thumb">@drawable/selector_switch_thumb_white</item>
+        <item name="switch_track">@drawable/selector_switch_bg_lightblue_gray</item>
+        <item name="trape_dots">@drawable/trape_dot_white</item>
+        <item name="projection_bg">@drawable/trape_background_iceblue</item>
+        <item name="arrow_horizontal">@mipmap/arrow_horizont_white</item>
+        <item name="arrow_vertical">@mipmap/arrow_vertical_white</item>
+        <item name="projector_spaceHeightPercent">0.114</item>
+        <item name="main_spaceVertical_weight">0.3</item>
+    </style>
+</resources>

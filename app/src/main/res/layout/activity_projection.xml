@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.twd.settingsccx.viewmodel.ProjectorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        android:paddingTop="20dp">
+        <TextView
+            android:id="@+id/projection_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/projection_title"
+            android:textSize="50sp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <!-- 辅助线（控制左右边距） -->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeft"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineRight"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <include
+            android:id="@+id/projectionModeInclude"
+            layout="@layout/item_projection_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            bind:itemData="@{viewModel.projectionModeItem}"
+            bind:viewModel="@{viewModel}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/projection_title" />
+        <!-- 2. 自动校正 -->
+        <include
+            android:id="@+id/autoCorrectInclude"
+            layout="@layout/item_projection_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            bind:itemData="@{viewModel.autoCorrectItem}"
+            bind:viewModel="@{viewModel}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/projectionModeInclude" />
+        <include
+            android:id="@+id/keystoneInclude"
+            layout="@layout/item_projection_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            bind:itemData="@{viewModel.keystoneCorrectionItem}"
+            bind:viewModel="@{viewModel}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/autoCorrectInclude" />
+        <!-- 4. 缩放 -->
+        <include
+            android:id="@+id/zoomInclude"
+            layout="@layout/item_projection_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            bind:itemData="@{viewModel.zoomItem}"
+            bind:viewModel="@{viewModel}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/keystoneInclude" />
+
+        <!-- 5. 重置 -->
+        <include
+            android:id="@+id/resetInclude"
+            layout="@layout/item_projection_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            bind:itemData="@{viewModel.resetItem}"
+            bind:viewModel="@{viewModel}"
+            app:layout_constraintLeft_toLeftOf="@id/guidelineLeft"
+            app:layout_constraintRight_toRightOf="@id/guidelineRight"
+            app:layout_constraintTop_toBottomOf="@id/zoomInclude" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

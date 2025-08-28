@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="@dimen/switch_height" />
+            <solid android:color="@color/color_ccffffff" />
+            <stroke android:width="@dimen/switch_thumb_padding" android:color="@color/color_transparent" />
+            <size android:height="@dimen/switch_height" android:width="@dimen/switch_height" />
+        </shape>
+    </item>
+</selector>
