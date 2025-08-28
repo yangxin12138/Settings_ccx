@@ -80,6 +80,13 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     private float mRightTopY = 0;
     private String projectorMode;
 
+    private static final int MIN_ZOOM = 50;   // 50%
+    private static final int MAX_ZOOM = 100;  // 100%
+    private static final int STEP   = 5;      // 每步 5%
+
+    // 当前缩放百分比，默认 100
+    private int currentZoom;
+
     public KeystoneViewModel(Application paramApplication) {
         super(paramApplication);
         lcd = new Lcd(getApplication());
@@ -88,6 +95,59 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         projectorMode = SystemPropertiesUtils.getProperty("persist.sys.projection","0");
     }
 
+    /**
+     * 根据百分比计算并应用四点坐标
+     * zoom 50~100 -> scale 0~1
+     */
+    private void applyZoom(int zoom) {
+        // 限制范围
+        zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom));
+        currentZoom = zoom;
+
+        // 把百分比映射到 0~1（0 表示最小，1 表示最大）
+        float scale = (zoom - MIN_ZOOM) * 1.0f / (MAX_ZOOM - MIN_ZOOM);
+
+        // 反向：scale=1 时不动；scale=0 时移动到中心
+        float disX = (1 - scale) * maxXStep;   // 横向总步长
+        float disY = (1 - scale) * maxYStep;   // 纵向总步长
+
+        // 同步四个点
+        vTopLeft.setX((int) disX);
+        vTopLeft.setY((int) disY);
+
+        vTopRight.setX((int) disX);
+        vTopRight.setY((int) disY);
+
+        vBottomLeft.setX((int) disX);
+        vBottomLeft.setY((int) disY);
+
+        vBottomRight.setX((int) disX);
+        vBottomRight.setY((int) disY);
+        // 下发到 SurfaceFlinger
+        updatePoint(4);
+        savePoint(4);
+        update();
+        prefs.edit().putInt("zoom_percent", currentZoom).apply();
+    }
+
+    /**
+     * 供外部调用：+1 步
+     */
+    public void zoomIn() {
+        applyZoom(currentZoom + STEP);
+    }
+
+    /**
+     * 供外部调用：-1 步
+     */
+    public void zoomOut() {
+        applyZoom(currentZoom - STEP);
+    }
+
+    /** 供外部调用：拿到当前百分比 */
+    public int getCurrentZoomPercent() {
+        return currentZoom;
+    }
     public void getKeystoneOrigin(){
         String originLT = SystemPropertiesUtils.getProperty(PROP_LT_ORIGIN,ORIGIN_NULL);
         String originRT = SystemPropertiesUtils.getProperty(PROP_RT_ORIGIN,ORIGIN_NULL);
@@ -100,7 +160,10 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         vBottomRightOrigin = new Vertex(originRB);
         Log.d(TAG, "getInitKeystone: origin_lt("+originLT+"),origin_rt("+originRT+"),origin_lb("+originLB+"),origin_rb("+originRB+")");
     }
-
+    public static int loadZoomPercent(Context ctx) {
+        return ctx.getSharedPreferences("ty_keystone", Context.MODE_PRIVATE)
+                .getInt("zoom_percent", 100);
+    }
     public void getInitKeystone(Context context){
         prefs = context.getSharedPreferences("ty_keystone", Context.MODE_PRIVATE);
         editor = prefs.edit();
@@ -150,10 +213,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         lcdValidWidth_bottom = lcdWidth - vBottomLeftOrigin.getX() + vBottomRightOrigin.getX();
         lcdValidHeight_left = lcdHeight + vTopLeftOrigin.getY() - vBottomLeftOrigin.getY();
         lcdValidHeight_right = lcdHeight + vTopRightOrigin.getY() - vBottomRightOrigin.getY();
-
-        Log.d(TAG, "getInitKeystone: lcdValidWidth_top="+lcdValidWidth_top+",lcdValidWidth_bottom=" +lcdValidWidth_bottom+
-                ",lcdValidHeight_left="+lcdValidHeight_left+",lcdValidHeight_right="+lcdValidHeight_right);
-        SharedPreferences prefs = context.getSharedPreferences("ty_zoom",Context.MODE_PRIVATE);
+        currentZoom = prefs.getInt("zoom_percent", 100);
     }
     public void setKeystoneMode(int _mode){
         if(_mode == MODE_ONEPOINT){

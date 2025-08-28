@@ -13,6 +13,7 @@ import com.twd.settingsccx.model.SettingItem;
 import com.twd.settingsccx.utils.AutoFocusUtils;
 import com.twd.settingsccx.utils.SystemPropertiesUtils;
 import com.twd.settingsccx.utils.Utils;
+import com.twd.settingsccx.viewmodel.KeystoneViewModel;
 import com.twd.settingsccx.viewmodel.ProjectorViewModel;
 
 import java.security.Key;
@@ -20,6 +21,7 @@ import java.security.Key;
 public class ProjectionActivity extends AppCompatActivity {
     private ActivityProjectionBinding binding;
     private ProjectorViewModel viewModel;
+    private KeystoneViewModel keystoneVM;
     private final String TAG = ProjectionActivity.class.getName();
     private static final String PATH_CONTROL_MIPI = "persist.sys.projection";
     private static final int MIN_ZOOM = 50;
@@ -35,7 +37,10 @@ public class ProjectionActivity extends AppCompatActivity {
 
         // 初始化ViewModel
         viewModel = new ViewModelProvider(this).get(ProjectorViewModel.class);
-
+        keystoneVM = new ViewModelProvider(
+                this,
+                new ViewModelProvider.AndroidViewModelFactory(getApplication())
+        ).get(KeystoneViewModel.class);
         // 绑定ViewModel到布局
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
@@ -43,6 +48,7 @@ public class ProjectionActivity extends AppCompatActivity {
             binding.projectionModeInclude.tvContent.setSelected(hashCode);
         });
         viewModel.initData(getApplication());
+        viewModel.initZoomFromDisk(getApplication());
         viewModel.setActionListener(new ProjectorViewModel.OnSettingActionListener() {
             @Override
             public boolean onLeftRight(int keyCode, SettingItem item, KeyEvent event) {
@@ -64,6 +70,11 @@ public class ProjectionActivity extends AppCompatActivity {
                     return true;
                 }
                 if (item == viewModel.getZoomItem()) {
+                    if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
+                        keystoneVM.zoomOut();   // -5%
+                    } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                        keystoneVM.zoomIn();    // +5%
+                    }
                     adjustZoom(keyCode == KeyEvent.KEYCODE_DPAD_RIGHT);
                     return true;
                 }
@@ -109,7 +120,7 @@ public class ProjectionActivity extends AppCompatActivity {
         boolean cur_autoCorrect = getString(R.string.projection_auto_disable).equals(cur);
         viewModel.getAutoCorrectItem().setContent(getString(R.string.projection_auto_disable).equals(cur) ?
                 getString(R.string.projection_auto_enable) : getString(R.string.projection_auto_disable));
-        autoFocusUtils.setTrapezoidCorrectEnable(cur_autoCorrect); //如果显示的是关闭，就传参true
+        autoFocusUtils.setVerticalCorrectEnable(cur_autoCorrect); //如果显示的是关闭，就传参true
         //TODO:调用切换自动梯形矫正
     }
 

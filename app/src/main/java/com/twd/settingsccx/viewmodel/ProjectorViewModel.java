@@ -1,6 +1,8 @@
 package com.twd.settingsccx.viewmodel;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -49,9 +51,6 @@ public class ProjectorViewModel extends ViewModel {
     public SettingItem getResetItem() {
         return resetItem;
     }
-    private static final int MIN_ZOOM = 50;
-    private static final int MAX_ZOOM = 100;
-    private static final int STEP = 5;
     // 可添加修改设置的方法（例如切换投影方式）
     public void switchProjectionMode(String newMode) {
         Log.d("yangxin", "switchProjectionMode: 设置投影方式为 "+newMode);
@@ -72,7 +71,7 @@ public class ProjectorViewModel extends ViewModel {
             projectionModeItem = new SettingItem(R.drawable.projection_mode,paramApplication.getString(R.string.projection_mode),paramApplication.getString(R.string.projection_rear_ceiling), View.VISIBLE,View.VISIBLE);
         }
         autoFocusUtils = new AutoFocusUtils();
-        String autoCorrect = autoFocusUtils.getTrapezoidCorrectStatus();
+        String autoCorrect = autoFocusUtils.getVerticalCorrectStatus();
         autoCorrectItem = new SettingItem(R.drawable.projection_auto, paramApplication.getString(R.string.projection_auto)
                 ,paramApplication.getString(autoCorrect.equals("1")?R.string.projection_auto_enable:R.string.projection_auto_disable),View.VISIBLE,View.VISIBLE);
 
@@ -100,15 +99,9 @@ public class ProjectorViewModel extends ViewModel {
     public void onItemClick(SettingItem item) {
         if (actionListener != null) actionListener.onClick(item);
     }
-
-    /**
-     * @param increase true=加5%，false=减5%
-     */
-    public void adjustZoom(boolean increase) {
-        int current = Integer.parseInt(zoomItem.getContent().replace("%", ""));
-        current = increase
-                ? Math.min(current + STEP, MAX_ZOOM)
-                : Math.max(current - STEP, MIN_ZOOM);
-        zoomItem.setContent(current + "%");
+    public void initZoomFromDisk(Context ctx) {
+        int percent = KeystoneViewModel.loadZoomPercent(ctx);
+        Log.d("yangxin", "initZoomFromDisk: 执行到初始化Zoom");
+        zoomItem.setContent(percent + "%");
     }
 }
