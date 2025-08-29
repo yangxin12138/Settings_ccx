@@ -101,7 +101,7 @@ public class ProjectorViewModel extends ViewModel {
     }
     public void initZoomFromDisk(Context ctx) {
         int percent = KeystoneViewModel.loadZoomPercent(ctx);
-        Log.d("yangxin", "initZoomFromDisk: 执行到初始化Zoom");
+        Log.d("yangxin", "initZoomFromDisk: 执行到初始化Zoom percent = " + percent);
         zoomItem.setContent(percent + "%");
     }
 }

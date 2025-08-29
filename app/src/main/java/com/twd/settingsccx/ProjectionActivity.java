@@ -149,6 +149,7 @@ public class ProjectionActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume: -----------返回执行初始化");
         viewModel.initZoomFromDisk(getApplication());
     }
 }

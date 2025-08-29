@@ -103,13 +103,15 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
         // 限制范围
         zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom));
         currentZoom = zoom;
+        Log.d(TAG, "applyZoom: zoom = "+zoom);
 
         // 把百分比映射到 0~1（0 表示最小，1 表示最大）
         float scale = (zoom - MIN_ZOOM) * 1.0f / (MAX_ZOOM - MIN_ZOOM);
-
+        Log.d(TAG, "applyZoom: scale = "+scale);
         // 反向：scale=1 时不动；scale=0 时移动到中心
         float disX = (1 - scale) * maxXStep;   // 横向总步长
         float disY = (1 - scale) * maxYStep;   // 纵向总步长
+        Log.d(TAG, "applyZoom: disX = "+disX+",disY = " + disY);
 
         // 同步四个点
         vTopLeft.setX((int) disX);
@@ -134,6 +136,8 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
      * 供外部调用：+1 步
      */
     public void zoomIn() {
+        currentZoom = prefs.getInt("zoom_percent",100);
+        Log.d(TAG, "zoomIn: 往右 currentZoom = "+currentZoom);
         applyZoom(currentZoom + STEP);
     }
 
@@ -141,16 +145,17 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
      * 供外部调用：-1 步
      */
     public void zoomOut() {
+        currentZoom = prefs.getInt("zoom_percent",100);
+        Log.d(TAG, "zoomIn: 往左 currentZoom = "+currentZoom);
         applyZoom(currentZoom - STEP);
     }
 
-    /** 供外部调用：拿到当前百分比 */
-    public int getCurrentZoomPercent() {
-        return currentZoom;
-    }
-
-    public void setCurrentZoomPercent(int zoom){
-        currentZoom = zoom;
+    public void resetZoom(){
+        currentZoom = 100;
+        prefs.edit().putInt("zoom_percent",currentZoom).apply();
+        int secZoom = prefs.getInt("zoom_percent",350);
+        Log.d(TAG, "resetZoom: 重置之后的secZoom = " + secZoom);
+        //updateZoomUI();
     }
     public void getKeystoneOrigin(){
         String originLT = SystemPropertiesUtils.getProperty(PROP_LT_ORIGIN,ORIGIN_NULL);
