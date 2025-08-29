@@ -27,8 +27,8 @@
     <dimen name="singlePoint_ld_marginBottom">65dp</dimen>
     <dimen name="singlePoint_rd_marginEnd">65dp</dimen>
     <dimen name="singlePoint_rd_marginBottom">65dp</dimen>
-    <dimen name="singlePoint_iv_width">600dp</dimen>
-    <dimen name="singlePoint_iv_height">350dp</dimen>
+    <dimen name="singlePoint_iv_width">1000dp</dimen>
+    <dimen name="singlePoint_iv_height">500dp</dimen>
     <dimen name="bg_line_corners">6.0dip</dimen>
     <dimen name="bg_line_width">2.0dip</dimen>
 </resources>

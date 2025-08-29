@@ -1,5 +1,6 @@
 package com.twd.settingsccx;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -134,6 +135,8 @@ public class ProjectionActivity extends AppCompatActivity {
 
     private void openFourPointKeystone() {
         // TODO: 启动梯形校正界面
+        Intent intent = new Intent(this, SinglePointActivity.class);
+        startActivity(intent);
     }
 
     private void resetAll() {
@@ -141,5 +144,11 @@ public class ProjectionActivity extends AppCompatActivity {
         viewModel.switchProjectionMode("正装背投");
         viewModel.getAutoCorrectItem().setContent("关闭");
         viewModel.getZoomItem().setContent("100%");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.initZoomFromDisk(getApplication());
     }
 }

@@ -148,6 +148,10 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
     public int getCurrentZoomPercent() {
         return currentZoom;
     }
+
+    public void setCurrentZoomPercent(int zoom){
+        currentZoom = zoom;
+    }
     public void getKeystoneOrigin(){
         String originLT = SystemPropertiesUtils.getProperty(PROP_LT_ORIGIN,ORIGIN_NULL);
         String originRT = SystemPropertiesUtils.getProperty(PROP_RT_ORIGIN,ORIGIN_NULL);
