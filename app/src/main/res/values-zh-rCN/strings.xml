@@ -20,6 +20,6 @@
     <string name="projection_front_ceiling">吊装正投</string>
     <string name="projection_rear_ceiling">吊装背投</string>
 
-    <string name="projection_auto_enable">打开</string>
+    <string name="projection_auto_enable">启用</string>
     <string name="projection_auto_disable">关闭</string>
 </resources>

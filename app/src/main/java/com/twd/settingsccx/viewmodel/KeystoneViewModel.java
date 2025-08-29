@@ -99,7 +99,7 @@ public class KeystoneViewModel extends BaseViewModel<SysEquipmentRepository> {
      * 根据百分比计算并应用四点坐标
      * zoom 50~100 -> scale 0~1
      */
-    private void applyZoom(int zoom) {
+    public void applyZoom(int zoom) {
         // 限制范围
         zoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom));
         currentZoom = zoom;

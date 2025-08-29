@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -92,6 +93,16 @@ public class ProjectionActivity extends AppCompatActivity {
             }
         });
         autoFocusUtils = new AutoFocusUtils();
+        String autoCorrect = autoFocusUtils.getVerticalCorrectStatus();
+        if (autoCorrect.equals("1")){
+            binding.keystoneInclude.itemRoot.setVisibility(View.INVISIBLE);
+            binding.zoomInclude.itemRoot.setVisibility(View.INVISIBLE);
+            binding.resetInclude.itemRoot.setVisibility(View.INVISIBLE);
+        }else {
+            binding.keystoneInclude.itemRoot.setVisibility(View.VISIBLE);
+            binding.zoomInclude.itemRoot.setVisibility(View.VISIBLE);
+            binding.resetInclude.itemRoot.setVisibility(View.VISIBLE);
+        }
     }
     /*
     * 循环切换投影模式*/
@@ -123,6 +134,21 @@ public class ProjectionActivity extends AppCompatActivity {
                 getString(R.string.projection_auto_enable) : getString(R.string.projection_auto_disable));
         autoFocusUtils.setVerticalCorrectEnable(cur_autoCorrect); //如果显示的是关闭，就传参true
         //TODO:调用切换自动梯形矫正
+
+        if(cur_autoCorrect){
+            keystoneVM.restoreKeystone(); // 重置坐标
+            keystoneVM.savePoint(4); // 保存所有点的坐标
+            keystoneVM.applyZoom(100); // 应用默认缩放
+            viewModel.getZoomItem().setContent(100 + "%");
+
+            binding.keystoneInclude.itemRoot.setVisibility(View.INVISIBLE);
+            binding.zoomInclude.itemRoot.setVisibility(View.INVISIBLE);
+            binding.resetInclude.itemRoot.setVisibility(View.INVISIBLE);
+        }else {
+            binding.keystoneInclude.itemRoot.setVisibility(View.VISIBLE);
+            binding.zoomInclude.itemRoot.setVisibility(View.VISIBLE);
+            binding.resetInclude.itemRoot.setVisibility(View.VISIBLE);
+        }
     }
 
     private void adjustZoom(boolean increase) {
